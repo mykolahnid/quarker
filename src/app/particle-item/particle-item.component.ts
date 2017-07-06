@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Particle } from 'app/particle.model';
+import { Fraction } from 'app/shared/fraction';
 
 @Component({
   selector: 'app-particle-item',
@@ -6,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./particle-item.component.css']
 })
 export class ParticleItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() item: Particle;
 
   ngOnInit() {
   }

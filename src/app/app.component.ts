@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Particle } from 'app/particle.model';
+import { Fraction } from 'app/shared/fraction';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  particles: Particle[] = [];
+
+  constructor() {
+    const higgs = new Particle();
+    higgs.name = 'Higgs';
+    higgs.spin = 0;
+    higgs.charge = new Fraction(0, 1);
+    higgs.mass = 125.09;
+    higgs.massPower = 9;
+
+    this.particles.push(higgs);
+  }
 }
