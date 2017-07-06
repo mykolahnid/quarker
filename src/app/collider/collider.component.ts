@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Particle } from 'app/particle.model';
 
 @Component({
   selector: 'app-collider',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collider.component.css']
 })
 export class ColliderComponent implements OnInit {
-
+  particle: Particle = new Particle();
   constructor() { }
 
   ngOnInit() {

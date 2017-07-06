@@ -15,8 +15,6 @@ export class AppComponent {
   constructor() {
     const higgs = new Particle();
     higgs.name = 'Higgs';
-    higgs.spin = 0;
-    higgs.charge = new Fraction(0, 1);
     higgs.mass = 125.09;
     higgs.massPower = 9;
 

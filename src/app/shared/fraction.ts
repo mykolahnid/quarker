@@ -1,10 +1,12 @@
 export class Fraction {
-  private numerator: number;
-  private denominator: number;
+  private numerator: number = 0;
+  private denominator: number = 1;
 
-  constructor(numerator: number, denominator: number) {
-    this.numerator = numerator;
-    this.denominator = denominator;
+  constructor(numerator?: number, denominator?: number) {
+    if (numerator !== undefined) {
+      this.numerator = numerator;
+      this.denominator = denominator;
+    }
   }
 
   toString() {

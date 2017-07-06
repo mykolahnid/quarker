@@ -4,6 +4,6 @@ export class Particle {
     name: string;
     mass: number;
     massPower: number;
-    charge: Fraction;
-    spin: number;
+    charge: Fraction = new Fraction();
+    spin: Fraction = new Fraction();
 }
