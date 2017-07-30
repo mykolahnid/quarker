@@ -16,4 +16,12 @@ export class Fraction {
       return this.numerator + '/' + this.denominator;
     }
   }
+
+  public decrement() {
+    this.numerator--;
+  }
+
+  increment() {
+    this.numerator++;
+  }
 }

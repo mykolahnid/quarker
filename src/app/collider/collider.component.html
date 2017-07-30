@@ -1,7 +1,9 @@
-<button type="button" class="btn btn-danger">-Charge</button>
-<input type="number" name="" [(ngModel)]="particle.charge"> <label>/3</label>
-<button type="button" class="btn btn-primary">+Charge</button>
-<button type="button" class="btn btn-danger">-Spin</button>
-<input type="number" name="" [(ngModel)]="particle.spin"> <label>/2</label>
-<button type="button" class="btn btn-primary">+Spin</button>
-<p>charge: {{particle.charge}}</p>
+<button type="button" class="btn btn-danger" (click)="decCharge()">-Charge</button>
+<input type="number" name=""> <label>/3</label>
+<button type="button" class="btn btn-primary" (click)="incCharge()">+Charge</button>
+<button type="button" class="btn btn-danger" (click)="decSpin()">-Spin</button>
+<input type="number" name=""> <label>/2</label>
+<button type="button" class="btn btn-primary" (click)="incSpin()">+Spin</button>
+<!-- <p>charge: {{particle.charge}}</p>
+<p>{{text}}</p> -->
+<app-fraction [fraction]="particle.charge"></app-fraction>
