@@ -1,3 +1,1 @@
-<div>
-  {{ fraction.numerator }}/{{ fraction.denominator}}
-</div>
+ {{ fraction.numerator }}<span *ngIf="fraction.denominator != 1 && fraction.numerator != 0">/{{ fraction.denominator}}</span>

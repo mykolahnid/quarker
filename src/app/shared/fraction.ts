@@ -24,4 +24,8 @@ export class Fraction {
   increment() {
     this.numerator++;
   }
+
+  public equals(fraction: Fraction): boolean {
+    return this.numerator === fraction.numerator && this.denominator === fraction.denominator;
+  }
 }

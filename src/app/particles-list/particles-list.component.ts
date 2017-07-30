@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Particle } from 'app/particle.model';
+import { ParticlesService } from 'app/shared/particles.service';
 
 @Component({
   selector: 'app-particles-list',
@@ -7,10 +8,11 @@ import { Particle } from 'app/particle.model';
   styleUrls: ['./particles-list.component.css']
 })
 export class ParticlesListComponent implements OnInit {
-  @Input() particles: Particle[];
-  constructor() { }
+  particles: Particle[];
+  constructor(private particlesService: ParticlesService) { }
 
   ngOnInit() {
+    this.particles = this.particlesService.knownParticles;
   }
 
 }

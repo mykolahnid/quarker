@@ -1,9 +1,6 @@
 <button type="button" class="btn btn-danger" (click)="decCharge()">-Charge</button>
-<input type="number" name=""> <label>/3</label>
+<app-fraction [fraction]="particle.charge"></app-fraction>
 <button type="button" class="btn btn-primary" (click)="incCharge()">+Charge</button>
 <button type="button" class="btn btn-danger" (click)="decSpin()">-Spin</button>
-<input type="number" name=""> <label>/2</label>
+<app-fraction [fraction]="particle.spin"></app-fraction>
 <button type="button" class="btn btn-primary" (click)="incSpin()">+Spin</button>
-<!-- <p>charge: {{particle.charge}}</p>
-<p>{{text}}</p> -->
-<app-fraction [fraction]="particle.charge"></app-fraction>
