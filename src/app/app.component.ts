@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Particle } from 'app/particle.model';
 import { Fraction } from 'app/shared/fraction';
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,10 @@ import { Fraction } from 'app/shared/fraction';
 })
 export class AppComponent {
   title = 'app';
+  particles: FirebaseListObservable<any[]>;
 
-  constructor() {
+  constructor(db: AngularFireDatabase) {
+    this.particles = db.list('/existingParticles')
   }
+
 }

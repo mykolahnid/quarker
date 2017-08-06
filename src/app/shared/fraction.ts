@@ -1,6 +1,6 @@
 export class Fraction {
-  private numerator: number = 0;
-  private denominator: number = 1;
+  public numerator: number = 0;
+  public denominator: number = 1;
 
   constructor(numerator?: number, denominator?: number) {
     if (numerator !== undefined) {

@@ -3,6 +3,9 @@
     <div class="col-md-12">
       <app-collider></app-collider>
       <app-particles-list></app-particles-list>
+      <ul>
+        <li *ngFor="let part of particles | async">{{part.name}}</li>
+      </ul>
     </div>
   </div>
 </div>
