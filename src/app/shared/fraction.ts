@@ -2,10 +2,14 @@ export class Fraction {
   public numerator: number = 0;
   public denominator: number = 1;
 
-  constructor(numerator?: number, denominator?: number) {
+  constructor(numerator?: number, denominator?: number, fraction?: Fraction) {
     if (numerator !== undefined) {
       this.numerator = numerator;
       this.denominator = denominator;
+    }
+
+    if (fraction !== undefined) {
+      Object.assign(this, fraction);
     }
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Fraction } from "app/shared/fraction";
+import { Fraction } from 'app/shared/fraction';
 
 @Component({
   selector: 'app-fraction',
