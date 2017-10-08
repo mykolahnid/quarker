@@ -12,6 +12,9 @@ export class Particle {
             Object.assign(this, particle);
             this.charge = new Fraction(0, 0, particle.charge);
             this.spin = new Fraction(0, 0, particle.spin);
+        } else {
+            this.charge = new Fraction(0, 3);
+            this.spin = new Fraction(0, 2);
         }
     }
 

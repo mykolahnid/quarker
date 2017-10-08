@@ -25,7 +25,7 @@ export class Fraction {
     this.numerator--;
   }
 
-  increment() {
+  public increment() {
     this.numerator++;
   }
 

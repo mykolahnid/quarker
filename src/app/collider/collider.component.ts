@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Particle } from 'app/particle.model';
 import { Fraction } from 'app/shared/fraction';
-import { ParticlesService } from "app/shared/particles.service";
+import { ParticlesService } from 'app/shared/particles.service';
 
 @Component({
   selector: 'app-collider',
@@ -13,14 +13,13 @@ export class ColliderComponent implements OnInit {
   text: string = '1';
 
   constructor(private particlesService: ParticlesService) {
-    this.particle.charge = new Fraction(0, 3);
-    this.particle.spin = new Fraction(0, 2);
   }
 
   ngOnInit() {
   }
 
   decCharge() {
+    // TODO: charge should not be called from outside; particle should know that it should decrement charge by 1/3
     this.particle.charge.decrement();
     // call service to check whether particle is one of known particles
     this.checkParticle();
