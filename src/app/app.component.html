@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <button type="button" class="btn btn-default" (click)="login()">Login</button>
+      <button type="button" class="btn btn-default" (click)="logout()">Logout</button>
+      {{displayName}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <app-collider></app-collider>
       <app-particles-list></app-particles-list>
     </div>
