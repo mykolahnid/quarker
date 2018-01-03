@@ -1,7 +1,7 @@
 import { Particle } from 'app/particle.model';
 import { Fraction } from 'app/shared/fraction';
 import { Injectable, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import * as _ from 'lodash';
 
@@ -30,7 +30,7 @@ export class ParticlesService {
 
         // this.existingParticles.push(electron);
 
-        (this.db.list('/existingParticles') as FirebaseListObservable<Particle[]>).subscribe(
+        this.db.list<Particle>('/existingParticles').valueChanges().subscribe(
             particles => {
                 // console.log(particles[0].equals(particles[1]));
                 const one: Particle = new Particle(particles[0]);
