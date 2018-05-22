@@ -1,6 +1,26 @@
-<button type="button" class="btn btn-danger" (click)="decCharge()">-Charge</button>
+<div class="d-flex justify-content-around align-items-baseline">
+  <button type="button" class="btn btn-danger" (click)="decCharge()">
+    - Charge
+  </button>
+  <app-fraction [fraction]="particle.charge"></app-fraction>
+  <button type="button" class="btn btn-success" (click)="incCharge()">
+    + Charge
+  </button>
+  <button type="button" class="btn btn-danger" (click)="decSpin()">
+    - Spin
+  </button>
+  <app-fraction [fraction]="particle.spin"></app-fraction>
+  <button type="button" class="btn btn-success" (click)="incSpin()">
+    + Spin
+  </button>
+</div>
+
+
+
+
+<!-- <button type="button" class="btn btn-danger" (click)="decCharge()">-Charge</button>
 <app-fraction [fraction]="particle.charge"></app-fraction>
 <button type="button" class="btn btn-primary" (click)="incCharge()">+Charge</button>
 <button type="button" class="btn btn-danger" (click)="decSpin()">-Spin</button>
 <app-fraction [fraction]="particle.spin"></app-fraction>
-<button type="button" class="btn btn-primary" (click)="incSpin()">+Spin</button>
+<button type="button" class="btn btn-primary" (click)="incSpin()">+Spin</button> -->

@@ -1,5 +1,22 @@
-<p>{{item.name}}</p>
+<!-- <p>{{item.name}}</p>
 <p>{{"~" + item.mass + " * 10^" + item.massPower + " eV/c^2"}}</p>
 <app-fraction [fraction]="item.charge"></app-fraction>
 <p>
-  <app-fraction [fraction]="item.spin"></app-fraction>
+  <app-fraction [fraction]="item.spin"></app-fraction> -->
+
+
+
+<div class="card p-3">
+  <h5 class="card-title">{{item.name}}</h5>
+  <p class="card-text">
+    ~{{item.mass}} * 10
+    <sup>{{item.massPower}}</sup> + eV/c
+    <sup>2</sup>
+  </p>
+  <p class="card-text">
+    <app-fraction [fraction]="item.charge"></app-fraction>
+  </p>
+  <p class="card-text">
+    <app-fraction [fraction]="item.spin"></app-fraction>
+  </p>
+</div>
