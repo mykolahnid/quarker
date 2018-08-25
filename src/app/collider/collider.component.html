@@ -1,6 +1,5 @@
 <div class="d-flex justify-content-around align-items-baseline">
-  <!--here particle to guess-->
-  <button class="btn" (click)="check()">check</button>
+  <app-particle-item [item]="studiedParticle"></app-particle-item>
   <ul>
     <button type="button" class="btn btn-success" (click)="checkParticle(name)" *ngFor="let name of unknownNames">
       {{name}}

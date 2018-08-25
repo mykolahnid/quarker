@@ -23,6 +23,7 @@ export class Particle {
     console.log('equals check');
     console.log(this);
     console.log(particle);
-    return this.charge.equals(particle.charge) && this.spin.equals(particle.spin) && this.discoveryYear === this.discoveryYear;
+    // tslint:disable-next-line:max-line-length
+    return this.charge.equals(particle.charge) && this.spin.equals(particle.spin) && this.discoveryYear === particle.discoveryYear && this.mass === particle.mass;
   }
 }

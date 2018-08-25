@@ -11,7 +11,6 @@ import { ParticlesService } from 'app/shared/particles.service';
 export class ColliderComponent implements OnInit {
   unknownNames: string[];
   studiedParticle: Particle;
-  strings: string[] = ["anna", "beta"];
 
   constructor(private particlesService: ParticlesService) {
   }
@@ -22,15 +21,8 @@ export class ColliderComponent implements OnInit {
   }
 
   private checkParticle(name: string) {
-    console.log(name);
-    // this.studiedParticle.name = name;
-    // this.particlesService.checkParticle(this.studiedParticle);
+    const particle = new Particle(this.studiedParticle);
+    particle.name = name;
+    this.particlesService.checkParticle(particle);
   }
-
-  check() {
-    console.log(this.unknownNames.length);
-    console.log(this.studiedParticle);
-  }
-
-
 }

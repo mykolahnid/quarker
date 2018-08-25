@@ -11,7 +11,7 @@ export class ParticlesService {
   knownParticles: Particle[] = [];
   private unknownParticles: Particle[] = [];
   unknownNames: string[] = [];
-  studiedParticle: Particle;
+  studiedParticle: Particle = new Particle();
 
   constructor(private db: AngularFireDatabase) {
     console.log('service constructor');
@@ -20,11 +20,9 @@ export class ParticlesService {
       particles => {
         this.existingParticles = _.map(particles, (particle) =>
           new Particle(particle));
-        console.log('exist lengt');
-        console.log(this.existingParticles.length);
         this.existingParticles.forEach(exp => this.unknownParticles.push(exp));
         this.mapUnknownNames();
-        console.log('particles mapped');
+        this.assignStudiedParticle();
       }
     );
   }
@@ -38,6 +36,7 @@ export class ParticlesService {
             this.unknownParticles.splice(i, 1);
             this.mapUnknownNames();
             this.assignStudiedParticle();
+            break;
           }
         }
         return true;
@@ -47,16 +46,12 @@ export class ParticlesService {
   }
 
   private assignStudiedParticle() {
-    console.log(this.unknownParticles.length);
-    const ind = Math.floor(Math.random() * (this.unknownParticles.length - 1))
-    console.log('index of studied:' + ind);
-    this.studiedParticle = new Particle(this.unknownParticles[ind]);
+    const i = Math.floor(Math.random() * (this.unknownParticles.length - 1))
+    Object.assign(this.studiedParticle, this.unknownParticles[i]);
     this.studiedParticle.name = '';
   }
 
   private mapUnknownNames() {
-    console.log('mapping names');
-    console.log(this.unknownParticles.length);
     this.unknownNames.splice(0, this.unknownNames.length);
     this.unknownParticles.forEach(unp => this.unknownNames.push(unp.name));
   }
