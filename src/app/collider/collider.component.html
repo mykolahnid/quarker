@@ -1,26 +1,9 @@
 <div class="d-flex justify-content-around align-items-baseline">
-  <button type="button" class="btn btn-danger" (click)="decCharge()">
-    - Charge
-  </button>
-  <app-fraction [fraction]="particle.charge"></app-fraction>
-  <button type="button" class="btn btn-success" (click)="incCharge()">
-    + Charge
-  </button>
-  <button type="button" class="btn btn-danger" (click)="decSpin()">
-    - Spin
-  </button>
-  <app-fraction [fraction]="particle.spin"></app-fraction>
-  <button type="button" class="btn btn-success" (click)="incSpin()">
-    + Spin
-  </button>
+  <!--here particle to guess-->
+  <button class="btn" (click)="check()">check</button>
+  <ul>
+    <button type="button" class="btn btn-success" (click)="checkParticle(name)" *ngFor="let name of unknownNames">
+      {{name}}
+    </button>
+  </ul>
 </div>
-
-
-
-
-<!-- <button type="button" class="btn btn-danger" (click)="decCharge()">-Charge</button>
-<app-fraction [fraction]="particle.charge"></app-fraction>
-<button type="button" class="btn btn-primary" (click)="incCharge()">+Charge</button>
-<button type="button" class="btn btn-danger" (click)="decSpin()">-Spin</button>
-<app-fraction [fraction]="particle.spin"></app-fraction>
-<button type="button" class="btn btn-primary" (click)="incSpin()">+Spin</button> -->

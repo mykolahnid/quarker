@@ -9,63 +9,55 @@ import * as _ from 'lodash';
 export class ParticlesService {
   private existingParticles: Particle[] = [];
   knownParticles: Particle[] = [];
+  private unknownParticles: Particle[] = [];
+  unknownNames: string[] = [];
+  studiedParticle: Particle;
 
   constructor(private db: AngularFireDatabase) {
-    // const higgs = new Particle();
-    // higgs.name = 'Higgs';
-    // higgs.mass = 125.09;
-    // higgs.massPower = 9;
-    // higgs.charge = new Fraction(0, 3);
-    // higgs.spin = new Fraction(0, 2);
-
-    // this.existingParticles.push(higgs);
-    // this.knownParticles.push(higgs);
-
-    // const electron = new Particle();
-    // electron.name = 'electron';
-    // electron.mass = 0.511;
-    // electron.massPower = 6;
-    // electron.charge = new Fraction(-3, 3);
-    // electron.spin = new Fraction(1, 2);
-
-    // this.existingParticles.push(electron);
+    console.log('service constructor');
 
     this.db.list<Particle>('/existingParticles').valueChanges().subscribe(
       particles => {
-        // console.log(particles[0].equals(particles[1]));
-        const one: Particle = new Particle(particles[0]);
-        const two: Particle = new Particle(particles[1]);
-        console.log(one);
-        console.log(two);
-        console.log(two.charge);
-        console.log(one.equals(two));
         this.existingParticles = _.map(particles, (particle) =>
           new Particle(particle));
-        // this.existingParticles.push(...particles);
-        this.knownParticles.push(new Particle(particles[0]));
-        // console.log(this.existingParticles);
-        // console.log(particles);
+        console.log('exist lengt');
+        console.log(this.existingParticles.length);
+        this.existingParticles.forEach(exp => this.unknownParticles.push(exp));
+        this.mapUnknownNames();
+        console.log('particles mapped');
       }
     );
   }
 
-  checkParticle(particle: Particle) {
-    let alreadyKnown = false;
-    this.knownParticles.forEach(element => {
-      if (element.equals(particle)) {
-        alreadyKnown = true;
-        return;
-      }
-    });
-
-    if (alreadyKnown) {
-      return;
-    }
-
+  checkParticle(particle: Particle): boolean {
     this.existingParticles.forEach(element => {
-      if (element.equals(particle)) {
+      if (element.equals(particle) && element.name === particle.name) {
         this.knownParticles.push(element);
+        for (let i = 0; i < this.unknownParticles.length; i++) {
+          if (this.unknownParticles[i].equals(element)) {
+            this.unknownParticles.splice(i, 1);
+            this.mapUnknownNames();
+            this.assignStudiedParticle();
+          }
+        }
+        return true;
       }
     });
+    return false;
+  }
+
+  private assignStudiedParticle() {
+    console.log(this.unknownParticles.length);
+    const ind = Math.floor(Math.random() * (this.unknownParticles.length - 1))
+    console.log('index of studied:' + ind);
+    this.studiedParticle = new Particle(this.unknownParticles[ind]);
+    this.studiedParticle.name = '';
+  }
+
+  private mapUnknownNames() {
+    console.log('mapping names');
+    console.log(this.unknownParticles.length);
+    this.unknownNames.splice(0, this.unknownNames.length);
+    this.unknownParticles.forEach(unp => this.unknownNames.push(unp.name));
   }
 }
