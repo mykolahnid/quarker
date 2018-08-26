@@ -9,7 +9,11 @@ import { ParticlesService } from 'app/shared/particles.service';
 })
 export class ParticlesListComponent implements OnInit {
   particles: Particle[];
+  cols: number[] = [1, 2, 3, 4, 5];
+  rows: number[] = [1, 2, 3, 4];
+
   constructor(private particlesService: ParticlesService) { }
+
 
   ngOnInit() {
     this.particles = this.particlesService.knownParticles;

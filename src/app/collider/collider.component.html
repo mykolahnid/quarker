@@ -1,8 +1,16 @@
-<div class="d-flex justify-content-around align-items-baseline">
-  <app-particle-item [item]="studiedParticle"></app-particle-item>
-  <ul>
-    <button type="button" class="btn btn-success" (click)="checkParticle(name)" *ngFor="let name of unknownNames">
-      {{name}}
-    </button>
-  </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <app-particle-item [item]="studiedParticle"></app-particle-item>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul>
+        <button type="button" class="btn btn-success" (click)="checkParticle(name)" *ngFor="let name of unknownNames">
+          {{name}}
+        </button>
+      </ul>
+    </div>
+  </div>
 </div>

@@ -4,9 +4,11 @@ export class Particle {
   name: string;
   mass: number;
   massPower: number;
-  discoveryYear: number;
+  year: number;
   charge: Fraction = new Fraction();
   spin: Fraction = new Fraction();
+  col: number;
+  row: number;
 
   constructor(particle?: Particle) {
     if (particle) {
@@ -24,6 +26,6 @@ export class Particle {
     console.log(this);
     console.log(particle);
     // tslint:disable-next-line:max-line-length
-    return this.charge.equals(particle.charge) && this.spin.equals(particle.spin) && this.discoveryYear === particle.discoveryYear && this.mass === particle.mass;
+    return this.charge.equals(particle.charge) && this.spin.equals(particle.spin) && this.year === particle.year && this.mass === particle.mass;
   }
 }

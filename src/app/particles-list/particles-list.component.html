@@ -1,3 +1,11 @@
-<ul>
-  <app-particle-item *ngFor="let particle of particles" [item]="particle"></app-particle-item>
-</ul>
+<div class="container-fluid">
+  <div class="row" *ngFor="let row of rows">
+    <div class="col" *ngFor="let col of cols">
+      <div *ngFor="let particle of particles">
+        <app-particle-item [item]="particle" *ngIf="particle.col === col && particle.row === row">
+
+        </app-particle-item>
+      </div>
+    </div>
+  </div>
+</div>
