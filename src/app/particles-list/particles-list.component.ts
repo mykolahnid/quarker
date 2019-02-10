@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Particle } from 'app/particle.model';
 import { ParticlesService } from 'app/shared/particles.service';
 
@@ -14,9 +14,7 @@ export class ParticlesListComponent implements OnInit {
 
   constructor(private particlesService: ParticlesService) { }
 
-
   ngOnInit() {
     this.particles = this.particlesService.knownParticles;
   }
-
 }

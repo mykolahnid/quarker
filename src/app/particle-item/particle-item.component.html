@@ -1,4 +1,8 @@
-<div class="card p-3">
+<div
+  class="card p-3"
+  #particleDiv
+  [style.transform]="getStyle()"
+>
   <h5 class="card-title">{{item.name}}</h5>
   <p class="card-text">
     ~{{item.mass}} * 10
@@ -11,4 +15,8 @@
   <p class="card-text">
     <app-fraction [fraction]="item.spin"></app-fraction>
   </p>
+  <button
+    class="btn btn-primary"
+    (click)="this.pass()"
+  >Pass Container</button>
 </div>

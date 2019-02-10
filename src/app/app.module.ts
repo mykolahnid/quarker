@@ -12,6 +12,7 @@ import { ParticlesListComponent } from './particles-list/particles-list.componen
 import { ParticleItemComponent } from './particle-item/particle-item.component';
 import { FractionComponent } from './fraction/fraction.component';
 import { ParticlesService } from 'app/shared/particles.service';
+import { ScaleDirectiveDirective } from './shared/scaled-directive/scale-directive.directive';
 
 @NgModule({
   declarations: [
@@ -19,15 +20,17 @@ import { ParticlesService } from 'app/shared/particles.service';
     ColliderComponent,
     ParticlesListComponent,
     ParticleItemComponent,
-    FractionComponent
+    FractionComponent,
+    ScaleDirectiveDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ScaleDirectiveDirective,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [ParticlesService],
+  providers: [ParticlesService, ScaleDirectiveDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

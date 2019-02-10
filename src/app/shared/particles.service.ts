@@ -20,7 +20,7 @@ export class ParticlesService {
       particles => {
         this.existingParticles = _.map(particles, (particle) =>
           new Particle(particle));
-        this.existingParticles.forEach(exp => this.unknownParticles.push(exp));
+        this.existingParticles.forEach(exp => this.knownParticles.push(exp));
         this.mapUnknownNames();
         this.assignStudiedParticle();
       }
